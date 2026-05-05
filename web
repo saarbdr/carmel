@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7b6c8" />
+  <meta name="description" content="כרמל ביסמוט - לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל ועיצוב גבות בגן יבנה." />
+  <title>כרמל ביסמוט | יופי שמתחיל בפרטים הקטנים</title>
+  <style>
+    :root {
+      --bg: #fff7fa;
+      --card: #ffffff;
+      --pink: #f7b6c8;
+      --pink-strong: #e987a8;
+      --pink-soft: #ffe5ee;
+      --text: #2a1c22;
+      --muted: #7d6470;
+      --border: rgba(233, 135, 168, 0.22);
+      --shadow: 0 18px 45px rgba(181, 83, 119, 0.13);
+      --radius: 24px;
+      --whatsapp: #25d366;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(247, 182, 200, 0.38), transparent 30%),
+        linear-gradient(180deg, #fff8fb 0%, #fff 48%, #fff7fa 100%);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .app {
+      width: min(100%, 480px);
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 18px 16px 92px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: -18px -16px 14px;
+      padding: 12px 16px 10px;
+      background: rgba(255, 247, 250, 0.86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(233, 135, 168, 0.12);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff, var(--pink-soft));
+      box-shadow: 0 10px 25px rgba(233, 135, 168, 0.20);
+      border: 1px solid var(--border);
+      font-size: 22px;
+    }
+
+    .tiny-status {
+      color: #2f8b55;
+      background: rgba(37, 211, 102, 0.10);
+      border: 1px solid rgba(37, 211, 102, 0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 12px 0 2px;
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar { display: none; }
+
+    .nav a {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 28px 6px 18px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--pink-strong);
+      background: rgba(255, 229, 238, 0.75);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(30px, 9vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 34ch;
+      margin: 0 auto 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 18px;
+      border: 0;
+      border-radius: 18px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 850;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-whatsapp {
+      color: white;
+      background: linear-gradient(135deg, #25d366, #14b857);
+      box-shadow: 0 14px 28px rgba(37, 211, 102, 0.22);
+    }
+
+    .btn-pink {
+      color: white;
+      background: linear-gradient(135deg, var(--pink), var(--pink-strong));
+      box-shadow: 0 14px 28px rgba(233, 135, 168, 0.22);
+    }
+
+    .status-card {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      box-shadow: 0 12px 35px rgba(181, 83, 119, 0.08);
+    }
+
+    section { padding: 18px 0; }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 0 2px;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .cards {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .service-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .service-card .btn { grid-column: 1 / -1; }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #fff, var(--pink-soft));
+      border: 1px solid var(--border);
+      font-size: 24px;
+    }
+
+    .service-name {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .desc, .review-text, .policy-text {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .gallery button {
+      border: 0;
+      padding: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: var(--pink-soft);
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(181, 83, 119, 0.11);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .review-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .stars { color: #f2a7bd; white-space: nowrap; }
+
+    .contact-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .address {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      z-index: 20;
+      width: min(calc(100% - 28px), 448px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      padding: 8px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 45px rgba(181, 83, 119, 0.17);
+      backdrop-filter: blur(16px);
+    }
+
+    .bottom-nav a {
+      text-align: center;
+      padding: 8px 4px;
+      border-radius: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .bottom-nav a:active,
+    .bottom-nav a:hover { background: var(--pink-soft); color: var(--pink-strong); }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(42, 28, 34, 0.82);
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 78vh;
+      border-radius: 24px;
+      box-shadow: 0 22px 70px rgba(0,0,0,0.34);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background: white;
+      color: var(--text);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 18px 0 6px;
+    }
+
+    @media (min-width: 720px) {
+      .app { width: min(100%, 860px); }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: repeat(4, 1fr); }
+      .hero { padding-top: 46px; }
+      .service-card .btn { grid-column: auto / -1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-row">
+        <a class="brand" href="#home" aria-label="כרמל ביסמוט דף הבית">
+          <span class="logo" aria-hidden="true">🌸</span>
+          <span>כרמל ביסמוט</span>
+        </a>
+        <span class="tiny-status">מקבלת תורים 💕</span>
+      </div>
+      <nav class="nav" aria-label="ניווט ראשי">
+        <a href="#services">שירותים</a>
+        <a href="#gallery">גלריה</a>
+        <a href="#reviews">ביקורות</a>
+        <a href="#contact">צור קשר</a>
+        <a href="#privacy">פרטיות</a>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="eyebrow">טיפוח נשי • נקי • פרימיום</div>
+      <h1>יופי שמתחיל בפרטים הקטנים ✨</h1>
+      <p class="subtitle">לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל ועיצוב גבות באווירה רגועה ומדויקת.</p>
+      <a class="btn btn-whatsapp" href="#" data-whatsapp="קביעת תור" aria-label="קביעת תור בוואטסאפ">בקשי תור בוואטסאפ 💬</a>
+      <div class="status-card">מענה בוואטסאפ לפי זמינות. שלחי תאריך ושעה מועדפים ונתאם לך תור שמתאים בדיוק 💕</div>
+    </section>
+
+    <section id="services">
+      <div class="section-title">
+        <h2>השירותים שלי</h2>
+        <span class="hint">כמו באפליקציה</span>
+      </div>
+      <div class="cards" id="servicesList"></div>
+    </section>
+
+    <section id="gallery">
+      <div class="section-title">
+        <h2>גלריה</h2>
+        <span class="hint">לחצי להגדלה</span>
+      </div>
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <section id="reviews">
+      <div class="section-title">
+        <h2>לקוחות מספרות</h2>
+        <span class="hint">אהבה בפרטים</span>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="review-head"><span>נועה</span><span class="stars">★★★★★</span></div>
+          <p class="review-text">עבודה נקייה, עדינה ומדויקת. יצא מושלם ונשאר מהמם.</p>
+        </article>
+        <article class="card">
+          <div class="review-head"><span>שיר</span><span class="stars">★★★★★</span></div>
+          <p class="review-text">אווירה נעימה ותוצאה פרימיום. לגמרי חוזרת שוב.</p>
+        </article>
+        <article class="card">
+          <div class="review-head"><span>מאיה</span><span class="stars">★★★★★</span></div>
+          <p class="review-text">כרמל מקסימה וסבלנית, כל פרט קטן מקבל תשומת לב.</p>
+        </article>
+        <article class="card">
+          <div class="review-head"><span>ליאן</span><span class="stars">★★★★★</span></div>
+          <p class="review-text">הגבות והציפורניים יצאו בדיוק כמו שרציתי.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>צור קשר</h2>
+        <span class="hint">גן יבנה</span>
+      </div>
+      <div class="card">
+        <div class="address"><span>📍</span><span>יעלים 1, גן יבנה</span></div>
+        <div class="contact-grid">
+          <a class="btn btn-pink" href="https://waze.com/ul?q=%D7%99%D7%A2%D7%9C%D7%99%D7%9D+1+%D7%92%D7%9F+%D7%99%D7%91%D7%A0%D7%94&navigate=yes" target="_blank" rel="noopener">נווטי אליי 📍</a>
+          <a class="btn btn-whatsapp" href="#" data-whatsapp="קביעת תור">וואטסאפ לכרמל 💬</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="section-title">
+        <h2>מדיניות פרטיות</h2>
+        <span class="hint">פשוט וברור</span>
+      </div>
+      <div class="card">
+        <p class="policy-text">האתר אינו אוסף מידע רגיש ואינו מפעיל מערכת משתמשים, שרת או מסד נתונים. פרטים לקביעת תור נשלחים רק דרך WhatsApp ובהתאם למה שתבחרי לשלוח. ליצירת קשר: 972522850464.</p>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> כרמל ביסמוט. כל הזכויות שמורות.</footer>
+  </main>
+
+  <nav class="bottom-nav" aria-label="ניווט תחתון">
+    <a href="#home">בית</a>
+    <a href="#services">שירותים</a>
+    <a href="#gallery">גלריה</a>
+    <a href="#contact">קשר</a>
+  </nav>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="תמונה מוגדלת">
+    <button class="close-lightbox" id="closeLightbox" type="button" aria-label="סגירת תמונה">×</button>
+    <img id="lightboxImg" src="" alt="תמונה מהגלריה" />
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var phone = "972522850464";
+
+      var services = [
+        { icon: "💅", name: "לק ג׳ל", desc: "מראה נקי, נשי ומבריק שמחזיק יפה לאורך זמן." },
+        { icon: "💎", name: "מבנה אנטומי", desc: "חיזוק ועיצוב מדויק למראה טבעי, יציב ואלגנטי." },
+        { icon: "✨", name: "מניקור רוסי", desc: "ניקוי מוקפד וגימור חלק לפרטים הקטנים ביותר." },
+        { icon: "🦶", name: "פדיקור", desc: "טיפוח עדין, נקי ומפנק לכפות הרגליים." },
+        { icon: "🌸", name: "בנייה בג׳ל", desc: "בניית ציפורניים במראה עדין, נשי ומותאם אישית." },
+        { icon: "🤍", name: "עיצוב גבות", desc: "עיצוב נקי ומחמיא שמדגיש את הפנים בטבעיות." }
+      ];
+
+      var galleryImages = [
+        "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80"
+      ];
+
+      function whatsappUrl(serviceName) {
+        var message = "היי כרמל 💕\nאני רוצה לקבוע תור ל:\n" + serviceName + "\n\nתאריך מועדף:\nשעה מועדפת:\nשם:\n\nאשמח לתאם איתך ✨";
+        return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+      }
+
+      function renderServices() {
+        var list = document.getElementById("servicesList");
+        if (!list) return;
+
+        services.forEach(function (service) {
+          var card = document.createElement("article");
+          card.className = "card service-card";
+          card.innerHTML =
+            '<div class="icon" aria-hidden="true">' + service.icon + '</div>' +
+            '<div><h3 class="service-name">' + service.name + '</h3><p class="desc">' + service.desc + '</p></div>' +
+            '<a class="btn btn-whatsapp" href="' + whatsappUrl(service.name) + '" target="_blank" rel="noopener">בקשי תור בוואטסאפ</a>';
+          list.appendChild(card);
+        });
+      }
+
+      function renderGallery() {
+        var grid = document.getElementById("galleryGrid");
+        var lightbox = document.getElementById("lightbox");
+        var lightboxImg = document.getElementById("lightboxImg");
+        if (!grid || !lightbox || !lightboxImg) return;
+
+        galleryImages.forEach(function (src, index) {
+          var button = document.createElement("button");
+          button.type = "button";
+          button.setAttribute("aria-label", "פתיחת תמונה " + (index + 1));
+          button.innerHTML = '<img src="' + src + '" alt="עבודת טיפוח של כרמל ביסמוט ' + (index + 1) + '" loading="lazy">';
+          button.addEventListener("click", function () {
+            lightboxImg.src = src;
+            lightbox.classList.add("open");
+            document.body.style.overflow = "hidden";
+          });
+          grid.appendChild(button);
+        });
+      }
+
+      function bindLightbox() {
+        var lightbox = document.getElementById("lightbox");
+        var close = document.getElementById("closeLightbox");
+        var lightboxImg = document.getElementById("lightboxImg");
+        if (!lightbox || !close || !lightboxImg) return;
+
+        function closeLightbox() {
+          lightbox.classList.remove("open");
+          lightboxImg.src = "";
+          document.body.style.overflow = "";
+        }
+
+        close.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", function (event) {
+          if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") closeLightbox();
+        });
+      }
+
+      function bindWhatsappLinks() {
+        var links = document.querySelectorAll("[data-whatsapp]");
+        links.forEach(function (link) {
+          var service = link.getAttribute("data-whatsapp") || "קביעת תור";
+          link.setAttribute("href", whatsappUrl(service));
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener");
+        });
+      }
+
+      document.getElementById("year").textContent = String(new Date().getFullYear());
+      renderServices();
+      renderGallery();
+      bindLightbox();
+      bindWhatsappLinks();
+    }());
+  </script>
+</body>
+</html>
