@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f7b6c8" />
-  <meta name="description" content="כרמל ביסמוט - לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל ועיצוב גבות בגן יבנה." />
-  <title>כרמל ביסמוט | יופי שמתחיל בפרטים הקטנים</title>
+  <meta name="description" content="כרמל ביסמוט - מניקוריסטית מקצועית בגן יבנה: לק ג׳ל, מבנה אנטומי, מניקור רוסי מוקפד, פדיקור, בנייה בג׳ל, לק היפואלרגני ועיצוב גבות." />
+  <title>כרמל ביסמוט | מניקוריסטית בגן יבנה</title>
   <style>
     :root {
       --bg: #fff7fa;
@@ -146,7 +146,7 @@
     .subtitle {
       color: var(--muted);
       font-size: 16px;
-      max-width: 34ch;
+      max-width: 36ch;
       margin: 0 auto 20px;
     }
 
@@ -407,9 +407,9 @@
     </header>
 
     <section id="home" class="hero">
-      <div class="eyebrow">טיפוח נשי • נקי • פרימיום</div>
+      <div class="eyebrow">מניקוריסטית מקצועית ✨</div>
       <h1>יופי שמתחיל בפרטים הקטנים ✨</h1>
-      <p class="subtitle">לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל ועיצוב גבות באווירה רגועה ומדויקת.</p>
+      <p class="subtitle">לק ג׳ל • מבנה אנטומי • מניקור רוסי מוקפד • פדיקור • בנייה בג׳ל • לק היפואלרגני • עיצוב גבות</p>
       <a class="btn btn-whatsapp" href="#" data-whatsapp="קביעת תור" aria-label="קביעת תור בוואטסאפ">בקשי תור בוואטסאפ 💬</a>
       <div class="status-card">מענה בוואטסאפ לפי זמינות. שלחי תאריך ושעה מועדפים ונתאם לך תור שמתאים בדיוק 💕</div>
     </section>
@@ -417,7 +417,7 @@
     <section id="services">
       <div class="section-title">
         <h2>השירותים שלי</h2>
-        <span class="hint">כמו באפליקציה</span>
+        <span class="hint">בחרי שירות</span>
       </div>
       <div class="cards" id="servicesList"></div>
     </section>
@@ -501,12 +501,48 @@
       var phone = "972522850464";
 
       var services = [
-        { icon: "💅", name: "לק ג׳ל", desc: "מראה נקי, נשי ומבריק שמחזיק יפה לאורך זמן." },
-        { icon: "💎", name: "מבנה אנטומי", desc: "חיזוק ועיצוב מדויק למראה טבעי, יציב ואלגנטי." },
-        { icon: "✨", name: "מניקור רוסי", desc: "ניקוי מוקפד וגימור חלק לפרטים הקטנים ביותר." },
-        { icon: "🦶", name: "פדיקור", desc: "טיפוח עדין, נקי ומפנק לכפות הרגליים." },
-        { icon: "🌸", name: "בנייה בג׳ל", desc: "בניית ציפורניים במראה עדין, נשי ומותאם אישית." },
-        { icon: "🤍", name: "עיצוב גבות", desc: "עיצוב נקי ומחמיא שמדגיש את הפנים בטבעיות." }
+        {
+          icon: "💅",
+          name: "לק ג׳ל",
+          desc: "לק ג׳ל נקי, נשי ומוקפד למראה מבריק ואלגנטי.",
+          question: "לקוחה חדשה / חוזרת:"
+        },
+        {
+          icon: "💎",
+          name: "מבנה אנטומי",
+          desc: "מבנה מדויק וחזק למראה טבעי, יציב ויפה לאורך זמן.",
+          question: "יש כרגע חומר על הציפורניים?:"
+        },
+        {
+          icon: "✨",
+          name: "מניקור רוסי מוקפד",
+          desc: "ניקוי יסודי ועדין עם גימור נקי עד הפרטים הקטנים.",
+          question: "לקוחה חדשה / חוזרת:"
+        },
+        {
+          icon: "🦶",
+          name: "פדיקור",
+          desc: "פדיקור נקי, עדין ומפנק לכפות הרגליים.",
+          question: "רגיל / לק ג׳ל:"
+        },
+        {
+          icon: "🌸",
+          name: "בנייה בג׳ל",
+          desc: "בנייה בג׳ל במראה נשי, מדויק ומותאם אישית.",
+          question: "בנייה חדשה / מילוי:"
+        },
+        {
+          icon: "🧴",
+          name: "לק היפואלרגני",
+          desc: "לק עדין שמתאים במיוחד למי שמעדיפה פתרון רגיש ועדין יותר.",
+          question: "יש רגישות ידועה?:"
+        },
+        {
+          icon: "🤍",
+          name: "עיצוב גבות",
+          desc: "עיצוב גבות נקי ומחמיא שמדגיש את הפנים בטבעיות.",
+          question: "סידור / עיצוב מלא:"
+        }
       ];
 
       var galleryImages = [
@@ -519,7 +555,24 @@
       ];
 
       function whatsappUrl(serviceName) {
-        var message = "היי כרמל 💕\nאני רוצה לקבוע תור ל:\n" + serviceName + "\n\nתאריך מועדף:\nשעה מועדפת:\nשם:\n\nאשמח לתאם איתך ✨";
+        var service = services.find(function (item) {
+          return item.name === serviceName;
+        });
+
+        var question = service && service.question ? service.question : "לקוחה חדשה / חוזרת:";
+
+        var message =
+          "היי כרמל 💕\n" +
+          "אני רוצה לקבוע תור ל:\n" +
+          serviceName +
+          "\n\n" +
+          question +
+          "\n\n" +
+          "תאריך מועדף:\n" +
+          "שעה מועדפת:\n" +
+          "שם:\n\n" +
+          "אשמח לתאם איתך ✨";
+
         return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
       }
 
