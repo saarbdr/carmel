@@ -1,30 +1,46 @@
 <!doctype html>
 <html lang="he" dir="rtl">
+
 <head>
   <meta charset="utf-8" />
+
+  <!-- התאמה למובייל -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- צבע לטלפון -->
   <meta name="theme-color" content="#f7b6c8" />
 
-  <title>כרמל ביסמוט | מניקוריסטית בגן יבנה</title>
-
+  <!-- תיאור לגוגל -->
   <meta
     name="description"
     content="כרמל ביסמוט - לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל, לק היפואלרגני ועיצוב גבות בגן יבנה."
   />
 
+  <!-- שם האתר -->
+  <title>כרמל ביסמוט | מניקוריסטית בגן יבנה</title>
+
   <style>
+
+    /* =========================
+       צבעים כלליים
+    ========================== */
+
     :root {
       --bg: #fff7fa;
-      --card: rgba(255,255,255,0.82);
+      --card: rgba(255,255,255,.85);
+
       --pink: #f7b6c8;
-      --pink-strong: #e987a8;
-      --pink-soft: #ffe5ee;
+      --pinkStrong: #e987a8;
+      --pinkSoft: #ffe5ee;
+
       --text: #2a1c22;
       --muted: #7d6470;
-      --border: rgba(233, 135, 168, 0.22);
-      --shadow: 0 18px 45px rgba(181, 83, 119, 0.13);
+
+      --border: rgba(233,135,168,.20);
+
+      --shadow: 0 18px 45px rgba(181,83,119,.12);
+
       --radius: 24px;
-      --whatsapp: #25d366;
     }
 
     * {
@@ -36,65 +52,91 @@
     }
 
     body {
+
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+
+      font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Arial,
+      sans-serif;
+
       color: var(--text);
 
-      background:
-        radial-gradient(circle at 20% 0%, rgba(247,182,200,.35), transparent 30%),
-        linear-gradient(180deg,#fff8fb 0%,#fff 50%,#fff7fa 100%);
-
       line-height: 1.65;
+
+      background:
+      radial-gradient(circle at top, rgba(247,182,200,.30), transparent 35%),
+      linear-gradient(180deg,#fff8fb 0%,#fff 50%,#fff7fa 100%);
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
+    /* =========================
+       עטיפת האתר
+    ========================== */
 
     .app {
-      width: min(100%, 480px);
+
+      width: min(100%, 520px);
+
       margin: 0 auto;
+
       min-height: 100vh;
-      padding: 18px 16px 92px;
+
+      padding: 18px 16px 40px;
     }
+
+    /* =========================
+       תפריט עליון
+    ========================== */
 
     .topbar {
+
       position: sticky;
+
       top: 0;
+
       z-index: 20;
 
-      margin: -18px -16px 14px;
-      padding: 12px 16px 10px;
+      margin: -18px -16px 16px;
+
+      padding: 12px 16px;
 
       background: rgba(255,247,250,.86);
-      backdrop-filter: blur(16px);
 
-      border-bottom: 1px solid rgba(233,135,168,.12);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid var(--border);
     }
 
-    .brand-row {
+    .brandRow {
+
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
-      gap: 10px;
     }
 
     .brand {
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
 
       font-weight: 800;
-      letter-spacing: -.02em;
     }
 
     .logo {
+
       width: 42px;
       height: 42px;
 
@@ -103,39 +145,43 @@
 
       border-radius: 16px;
 
-      background: linear-gradient(135deg,#fff,var(--pink-soft));
+      background:
+      linear-gradient(135deg,#fff,var(--pinkSoft));
 
       border: 1px solid var(--border);
-
-      box-shadow: 0 10px 25px rgba(233,135,168,.20);
 
       font-size: 22px;
     }
 
-    .tiny-status {
-      color: #2f8b55;
+    .status {
 
-      background: rgba(37,211,102,.10);
+      background:
+      rgba(37,211,102,.10);
 
-      border: 1px solid rgba(37,211,102,.18);
+      color: #1f9b4c;
 
       padding: 6px 10px;
 
       border-radius: 999px;
 
       font-size: 12px;
-      font-weight: 700;
 
-      white-space: nowrap;
+      font-weight: 700;
     }
 
+    /* =========================
+       ניווט
+    ========================== */
+
     .nav {
+
       display: flex;
+
       gap: 8px;
 
       overflow-x: auto;
 
-      padding: 12px 0 2px;
+      padding-top: 12px;
 
       scrollbar-width: none;
     }
@@ -145,134 +191,145 @@
     }
 
     .nav a {
+
       flex: 0 0 auto;
 
       padding: 8px 12px;
 
       border-radius: 999px;
 
-      border: 1px solid var(--border);
-
       background: rgba(255,255,255,.75);
 
-      color: var(--muted);
+      border: 1px solid var(--border);
 
       font-size: 13px;
+
       font-weight: 700;
+
+      color: var(--muted);
     }
 
+    /* =========================
+       אזור פתיחה
+    ========================== */
+
     .hero {
-      padding: 38px 6px 22px;
+
       text-align: center;
+
+      padding: 40px 0 20px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
 
-      margin-bottom: 12px;
+      display: inline-block;
 
-      padding: 7px 12px;
+      padding: 7px 14px;
 
       border-radius: 999px;
 
-      color: var(--pink-strong);
-
-      background: rgba(255,229,238,.75);
+      background: rgba(255,229,238,.80);
 
       border: 1px solid var(--border);
 
+      color: var(--pinkStrong);
+
       font-size: 13px;
+
       font-weight: 800;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-
-    h1 {
-      font-size: clamp(32px, 9vw, 48px);
-
-      line-height: 1.1;
-
-      letter-spacing: -.05em;
 
       margin-bottom: 14px;
     }
 
-    .subtitle {
-      color: var(--muted);
+    h1 {
 
-      font-size: 17px;
+      margin: 0 0 14px;
+
+      font-size: clamp(34px,10vw,52px);
+
+      line-height: 1.1;
+
+      letter-spacing: -.05em;
+    }
+
+    .subtitle {
+
+      margin: 0 auto;
 
       max-width: 34ch;
 
-      margin: 0 auto 18px;
+      color: var(--muted);
+
+      font-size: 17px;
     }
 
-    .status-card {
+    .statusCard {
+
       margin-top: 18px;
 
-      padding: 14px;
-
-      border-radius: 20px;
-
-      background: rgba(255,255,255,.72);
+      background: rgba(255,255,255,.75);
 
       border: 1px solid var(--border);
 
-      backdrop-filter: blur(12px);
+      border-radius: 20px;
+
+      backdrop-filter: blur(10px);
+
+      padding: 14px;
 
       color: var(--muted);
 
       font-size: 14px;
-
-      box-shadow: 0 12px 35px rgba(181,83,119,.08);
     }
+
+    /* =========================
+       כותרות אזורים
+    ========================== */
 
     section {
-      padding: 18px 0;
+      padding: 20px 0;
     }
 
-    .section-title {
+    .sectionTitle {
+
       display: flex;
-      align-items: end;
+
       justify-content: space-between;
 
-      gap: 12px;
+      align-items: end;
 
       margin-bottom: 12px;
-
-      padding: 0 2px;
     }
 
     h2 {
+
+      margin: 0;
+
       font-size: 24px;
-
-      line-height: 1.2;
-
-      letter-spacing: -.03em;
     }
 
     .hint {
+
       color: var(--muted);
 
       font-size: 13px;
-      font-weight: 700;
 
-      white-space: nowrap;
+      font-weight: 700;
     }
 
+    /* =========================
+       כרטיסים
+    ========================== */
+
     .cards {
+
       display: grid;
+
       gap: 12px;
     }
 
     .card {
+
       background: var(--card);
 
       border: 1px solid var(--border);
@@ -286,26 +343,27 @@
       padding: 16px;
     }
 
-    .service-card {
+    /* =========================
+       שירותים
+    ========================== */
+
+    .serviceCard {
+
       display: grid;
+
       grid-template-columns: auto 1fr;
 
       gap: 14px;
 
       align-items: start;
-
-      transition: transform .2s ease;
     }
 
-    .service-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .service-card .btn {
+    .serviceCard .btn {
       grid-column: 1 / -1;
     }
 
     .icon {
+
       width: 50px;
       height: 50px;
 
@@ -314,109 +372,116 @@
 
       border-radius: 18px;
 
-      background: linear-gradient(135deg,#fff,var(--pink-soft));
+      background:
+      linear-gradient(135deg,#fff,var(--pinkSoft));
 
       border: 1px solid var(--border);
 
       font-size: 24px;
     }
 
-    .service-name {
-      font-size: 18px;
-      font-weight: 900;
+    .serviceName {
 
-      margin-bottom: 4px;
+      margin: 0 0 4px;
+
+      font-size: 18px;
+
+      font-weight: 900;
     }
 
-    .desc,
-    .review-text,
-    .policy-text {
+    .desc {
+
+      margin: 0;
+
       color: var(--muted);
 
       font-size: 14px;
     }
 
+    /* =========================
+       כפתורים
+    ========================== */
+
     .btn {
-      display: inline-flex;
+
+      display: flex;
+
       align-items: center;
+
       justify-content: center;
-      gap: 8px;
 
       width: 100%;
-      min-height: 52px;
 
-      padding: 13px 18px;
+      min-height: 52px;
 
       border: 0;
 
       border-radius: 18px;
 
-      cursor: pointer;
+      padding: 13px 18px;
 
       font: inherit;
+
       font-weight: 850;
 
-      transition: transform .18s ease, opacity .18s ease;
-    }
-
-    .btn:active {
-      transform: scale(.98);
-    }
-
-    .btn-whatsapp {
-      color: white;
-
-      background: linear-gradient(135deg,#25d366,#14b857);
-
-      box-shadow: 0 14px 28px rgba(37,211,102,.22);
-    }
-
-    .btn-pink {
-      color: white;
-
-      background: linear-gradient(135deg,var(--pink),var(--pink-strong));
-
-      box-shadow: 0 14px 28px rgba(233,135,168,.22);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-
-      gap: 10px;
-    }
-
-    .gallery button {
-      border: 0;
-      padding: 0;
-
-      border-radius: 22px;
-
-      overflow: hidden;
-
-      aspect-ratio: 1 / 1;
-
-      background: var(--pink-soft);
-
       cursor: pointer;
-
-      box-shadow: 0 12px 30px rgba(181,83,119,.11);
     }
 
-    .gallery img {
-      width: 100%;
-      height: 100%;
+    .btnWhatsapp {
 
-      object-fit: cover;
+      background:
+      linear-gradient(135deg,#25d366,#14b857);
 
-      display: block;
+      color: white;
     }
 
-    .review-head {
+    .btnPink {
+
+      background:
+      linear-gradient(135deg,var(--pink),var(--pinkStrong));
+
+      color: white;
+    }
+
+    /* =========================
+       גלריה
+    ========================== */
+.gallery {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 2px 12px;
+  scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery button {
+  flex: 0 0 78%;
+  max-width: 320px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--pinkSoft);
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  scroll-snap-align: center;
+  box-shadow: var(--shadow);
+}
+
+    /* =========================
+       ביקורות
+    ========================== */
+
+    .reviewHead {
+
       display: flex;
-      justify-content: space-between;
 
-      gap: 10px;
+      justify-content: space-between;
 
       margin-bottom: 8px;
 
@@ -425,89 +490,37 @@
 
     .stars {
       color: #f2a7bd;
-      white-space: nowrap;
     }
 
-    .contact-grid {
-      display: grid;
-      gap: 10px;
-    }
-
-    .address {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .reviewText,
+    .policyText {
 
       color: var(--muted);
 
-      font-weight: 750;
-
-      margin-bottom: 12px;
+      font-size: 14px;
     }
 
-    .bottom-nav {
-      position: fixed;
-
-      left: 50%;
-      bottom: 12px;
-
-      transform: translateX(-50%);
-
-      z-index: 20;
-
-      width: min(calc(100% - 28px),448px);
-
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-
-      gap: 6px;
-
-      padding: 8px;
-
-      border-radius: 24px;
-
-      background: rgba(255,255,255,.88);
-
-      border: 1px solid var(--border);
-
-      backdrop-filter: blur(16px);
-
-      box-shadow: 0 18px 45px rgba(181,83,119,.17);
-    }
-
-    .bottom-nav a {
-      text-align: center;
-
-      padding: 8px 4px;
-
-      border-radius: 16px;
-
-      color: var(--muted);
-
-      font-size: 12px;
-      font-weight: 850;
-    }
-
-    .bottom-nav a:hover,
-    .bottom-nav a:active {
-      background: var(--pink-soft);
-
-      color: var(--pink-strong);
-    }
+    /* =========================
+       תמונה מוגדלת
+    ========================== */
 
     .lightbox {
+
       position: fixed;
+
       inset: 0;
 
-      z-index: 100;
+      background: rgba(0,0,0,.82);
 
       display: none;
+
       align-items: center;
+
       justify-content: center;
 
-      padding: 22px;
+      padding: 20px;
 
-      background: rgba(42,28,34,.82);
+      z-index: 100;
     }
 
     .lightbox.open {
@@ -515,15 +528,16 @@
     }
 
     .lightbox img {
+
       max-width: 100%;
-      max-height: 78vh;
+
+      max-height: 80vh;
 
       border-radius: 24px;
-
-      box-shadow: 0 22px 70px rgba(0,0,0,.34);
     }
 
-    .close-lightbox {
+    .closeLightbox {
+
       position: absolute;
 
       top: 16px;
@@ -538,24 +552,24 @@
 
       background: white;
 
-      color: var(--text);
-
       font-size: 24px;
 
       cursor: pointer;
     }
 
     footer {
+
       text-align: center;
 
       color: var(--muted);
 
       font-size: 12px;
 
-      padding: 18px 0 6px;
+      padding-top: 20px;
     }
 
     @media (min-width: 720px) {
+
       .app {
         width: min(100%,860px);
       }
@@ -564,10 +578,8 @@
         grid-template-columns: repeat(2,1fr);
       }
 
-      .gallery {
-        grid-template-columns: repeat(4,1fr);
-      }
     }
+
   </style>
 </head>
 
@@ -575,258 +587,290 @@
 
 <main class="app">
 
-<header class="topbar">
+  <!-- ======================
+       תפריט עליון
+  ======================= -->
 
-<div class="brand-row">
+  <header class="topbar">
 
-<a class="brand" href="#home">
-<span class="logo">🌸</span>
-<span>כרמל ביסמוט</span>
-</a>
+    <div class="brandRow">
 
-<span class="tiny-status">
-מקבלת תורים 💕
-</span>
+      <a class="brand" href="#home">
 
-</div>
+        <span class="logo">
+          🌸
+        </span>
 
-<nav class="nav">
-<a href="#services">שירותים</a>
-<a href="#gallery">גלריה</a>
-<a href="#reviews">ביקורות</a>
-<a href="#instagram">אינסטגרם</a>
-<a href="#privacy">פרטיות</a>
-</nav>
+        <span>
+          כרמל ביסמוט
+        </span>
 
-</header>
+      </a>
 
-<section id="home" class="hero">
+      <span class="status">
+        מקבלת תורים 💕
+      </span>
 
-<div class="eyebrow">
-✨ מניקוריסטית מקצועית
-</div>
+    </div>
 
-<h1>
-יופי שמתחיל בפרטים הקטנים ✨
-</h1>
+    <nav class="nav">
 
-<p class="subtitle">
-לק ג׳ל • מבנה אנטומי • מניקור רוסי מוקפד • פדיקור • בנייה בג׳ל • לק היפואלרגני • עיצוב גבות
-</p>
+      <a href="#services">שירותים</a>
 
-<div class="status-card">
-מענה בוואטסאפ לפי זמינות 💕
-שלחי תאריך ושעה מועדפים ונתאם לך תור שמתאים בדיוק.
-</div>
+      <a href="#gallery">גלריה</a>
 
-</section>
+      <a href="#reviews">ביקורות</a>
 
-<section id="services">
+      <a href="#instagram">אינסטגרם</a>
 
-<div class="section-title">
-<h2>השירותים שלי</h2>
-<span class="hint">בחרי שירות</span>
-</div>
+      <a href="#privacy">פרטיות</a>
 
-<div class="cards" id="servicesList"></div>
+    </nav>
 
-</section>
+  </header>
 
-<section id="gallery">
+  <!-- ======================
+       פתיחה
+  ======================= -->
 
-<div class="section-title">
-<h2>גלריה</h2>
-<span class="hint">לחצי להגדלה</span>
-</div>
+  <section id="home" class="hero">
 
-<div class="gallery" id="galleryGrid"></div>
+    <div class="eyebrow">
+      ✨ מניקוריסטית מקצועית
+    </div>
 
-</section>
+    <h1>
+      יופי שמתחיל בפרטים הקטנים ✨
+    </h1>
 
-<section id="reviews">
+    <p class="subtitle">
+      לק ג׳ל • מבנה אנטומי • מניקור רוסי מוקפד • פדיקור • בנייה בג׳ל • לק היפואלרגני • עיצוב גבות
+    </p>
 
-<div class="section-title">
-<h2>לקוחות מספרות</h2>
-<span class="hint">אהבה בפרטים</span>
-</div>
+    <div class="statusCard">
+      מענה בוואטסאפ לפי זמינות 💕
+      שלחי תאריך ושעה מועדפים ונתאם לך תור שמתאים בדיוק.
+    </div>
 
-<div class="cards">
+  </section>
 
-<article class="card">
-<div class="review-head">
-<span>נועה</span>
-<span class="stars">★★★★★</span>
-</div>
+  <!-- ======================
+       שירותים
+  ======================= -->
 
-<p class="review-text">
-עבודה נקייה, עדינה ומדויקת. יצא מושלם ונשאר מהמם.
-</p>
-</article>
+  <section id="services">
 
-<article class="card">
-<div class="review-head">
-<span>שיר</span>
-<span class="stars">★★★★★</span>
-</div>
+    <div class="sectionTitle">
 
-<p class="review-text">
-אווירה נעימה ותוצאה פרימיום. לגמרי חוזרת שוב.
-</p>
-</article>
+      <h2>
+        השירותים שלי
+      </h2>
 
-<article class="card">
-<div class="review-head">
-<span>מאיה</span>
-<span class="stars">★★★★★</span>
-</div>
+      <span class="hint">
+        בחרי שירות
+      </span>
 
-<p class="review-text">
-כרמל מקסימה וסבלנית, כל פרט קטן מקבל תשומת לב.
-</p>
-</article>
+    </div>
 
-<article class="card">
-<div class="review-head">
-<span>ליאן</span>
-<span class="stars">★★★★★</span>
-</div>
+    <div class="cards" id="servicesList"></div>
 
-<p class="review-text">
-הגבות והציפורניים יצאו בדיוק כמו שרציתי.
-</p>
-</article>
+  </section>
 
-</div>
+  <!-- ======================
+       גלריה
+  ======================= -->
 
-</section>
+  <section id="gallery">
 
-<section id="contact">
+    <div class="sectionTitle">
 
-<div class="section-title">
-<h2>צור קשר</h2>
-<span class="hint">גן יבנה</span>
-</div>
+      <h2>
+        גלריה
+      </h2>
 
-<div class="card">
+      <span class="hint">
+        לחצי להגדלה
+      </span>
 
-<div class="address">
-<span>📍</span>
-<span>יעלים 1, גן יבנה</span>
-</div>
+    </div>
 
-<div class="contact-grid">
+    <div class="gallery" id="galleryGrid"></div>
 
-<a
-class="btn btn-pink"
-href="https://waze.com/ul?q=%D7%99%D7%A2%D7%9C%D7%99%D7%9D+1+%D7%92%D7%9F+%D7%99%D7%91%D7%A0%D7%94&navigate=yes"
-target="_blank"
-rel="noopener"
->
-נווטי אליי 📍
-</a>
+  </section>
 
-</div>
+  <!-- ======================
+       ביקורות
+  ======================= -->
 
-</div>
+  <section id="reviews">
 
-</section>
+    <div class="sectionTitle">
 
-<section id="instagram">
+      <h2>
+        לקוחות מספרות
+      </h2>
 
-<div class="section-title">
-<h2>אינסטגרם</h2>
-<span class="hint">עקבי אחרי עבודות חדשות</span>
-</div>
+      <span class="hint">
+        אהבה בפרטים
+      </span>
 
-<div class="card">
+    </div>
 
-<a
-class="btn btn-pink"
-href="https://www.instagram.com/beauty.bycarmel/"
-target="_blank"
-rel="noopener"
->
-Instagram @beauty.bycarmel 📸
-</a>
+    <div class="cards">
 
-</div>
+      <article class="card">
 
-</section>
+        <div class="reviewHead">
+          <span>נועה</span>
+          <span class="stars">★★★★★</span>
+        </div>
 
-<section id="privacy">
+        <p class="reviewText">
+          עבודה נקייה, עדינה ומדויקת. יצא מושלם ונשאר מהמם.
+        </p>
 
-<div class="section-title">
-<h2>פרטיות ונגישות</h2>
-<span class="hint">מידע חשוב</span>
-</div>
+      </article>
 
-<div class="card">
+      <article class="card">
 
-<h3 class="service-name">
-מדיניות פרטיות
-</h3>
+        <div class="reviewHead">
+          <span>שיר</span>
+          <span class="stars">★★★★★</span>
+        </div>
 
-<p class="policy-text">
-האתר אינו שומר מידע אישי או רגיש.
-כל יצירת קשר מתבצעת דרך WhatsApp בלבד.
-אין באתר מערכת משתמשים, מסד נתונים או מעקב אחר משתמשים.
-</p>
+        <p class="reviewText">
+          אווירה נעימה ותוצאה פרימיום. לגמרי חוזרת שוב.
+        </p>
 
-<br>
+      </article>
 
-<h3 class="service-name">
-הצהרת נגישות
-</h3>
+    </div>
 
-<p class="policy-text">
-האתר נבנה במטרה להיות נגיש ונוח לשימוש במובייל ובדפדפנים מודרניים.
-אם נתקלת בבעיה בנושא נגישות ניתן ליצור קשר דרך WhatsApp:
-052-285-0464
-</p>
+  </section>
 
-</div>
+  <!-- ======================
+       אינסטגרם
+  ======================= -->
 
-</section>
+  <section id="instagram">
 
-<footer>
-© <span id="year"></span> כרמל ביסמוט. כל הזכויות שמורות.
-</footer>
+    <div class="sectionTitle">
+
+      <h2>
+        אינסטגרם
+      </h2>
+
+      <span class="hint">
+        עקבי אחרי עבודות חדשות
+      </span>
+
+    </div>
+
+    <div class="card">
+
+      <a
+      class="btn btnPink"
+      href="https://www.instagram.com/beauty.bycarmel/"
+      target="_blank"
+      rel="noopener"
+      >
+        Instagram @beauty.bycarmel 📸
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ======================
+       פרטיות
+  ======================= -->
+
+  <section id="privacy">
+
+    <div class="sectionTitle">
+
+      <h2>
+        פרטיות ונגישות
+      </h2>
+
+      <span class="hint">
+        מידע חשוב
+      </span>
+
+    </div>
+
+    <div class="card">
+
+      <h3 class="serviceName">
+        מדיניות פרטיות
+      </h3>
+
+      <p class="policyText">
+        האתר אינו שומר מידע אישי או רגיש.
+        כל יצירת קשר מתבצעת דרך WhatsApp בלבד.
+      </p>
+
+      <br>
+
+      <h3 class="serviceName">
+        הצהרת נגישות
+      </h3>
+
+      <p class="policyText">
+        האתר נבנה במטרה להיות נגיש ונוח לשימוש במובייל ובדפדפנים מודרניים.
+        אם נתקלת בבעיה ניתן ליצור קשר בוואטסאפ:
+        052-285-0464
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © <span id="year"></span> כרמל ביסמוט
+  </footer>
 
 </main>
 
-<nav class="bottom-nav">
-<a href="#home">בית</a>
-<a href="#services">שירותים</a>
-<a href="#gallery">גלריה</a>
-<a href="#contact">קשר</a>
-</nav>
+<!-- ======================
+     תמונה מוגדלת
+======================= -->
 
 <div class="lightbox" id="lightbox">
 
-<button
-class="close-lightbox"
-id="closeLightbox"
-type="button"
->
-×
-</button>
+  <button
+  class="closeLightbox"
+  id="closeLightbox"
+  >
+    ×
+  </button>
 
-<img
-id="lightboxImg"
-src=""
-alt="תמונה מוגדלת"
-/>
+  <img
+  id="lightboxImg"
+  src=""
+  alt="תמונה מוגדלת"
+  />
 
 </div>
 
 <script>
+
 (function () {
 
 "use strict";
 
+/* =========================
+   מספר וואטסאפ
+========================= */
+
 var phone = "972522850464";
 
+/* =========================
+   שירותים
+========================= */
+
 var services = [
+
 {
 icon: "💅",
 name: "לק ג׳ל",
@@ -851,14 +895,14 @@ question: "לקוחה חדשה / חוזרת:"
 {
 icon: "🦶",
 name: "פדיקור",
-desc: "פדיקור נקי, עדין ומפנק.",
+desc: "פדיקור נקי ועדין.",
 question: "רגיל / לק ג׳ל:"
 },
 
 {
 icon: "🌸",
 name: "בנייה בג׳ל",
-desc: "בנייה בג׳ל במראה נשי ומדויק.",
+desc: "בנייה בג׳ל במראה נשי.",
 question: "בנייה חדשה / מילוי:"
 },
 
@@ -875,16 +919,28 @@ name: "עיצוב גבות",
 desc: "עיצוב גבות נקי ומחמיא.",
 question: "סידור / עיצוב מלא:"
 }
+
 ];
 
+/* =========================
+   תמונות גלריה
+   תשנה פה לשמות שלך
+========================= */
+
 var galleryImages = [
-"image1.jpg",
-"image2.jpg",
-"image3.jpg",
-"image4.jpg",
-"image5.jpg",
-"image6.jpg"
+
+"img1.jpg",
+"img2.jpg",
+"img3.jpg",
+"img4.jpg",
+"img5.jpg",
+"img6.jpg"
+
 ];
+
+/* =========================
+   יצירת לינק וואטסאפ
+========================= */
 
 function whatsappUrl(serviceName) {
 
@@ -918,28 +974,46 @@ encodeURIComponent(message)
 
 }
 
+/* =========================
+   יצירת שירותים
+========================= */
+
 function renderServices() {
 
-var list = document.getElementById("servicesList");
-
-if (!list) return;
+var list =
+document.getElementById("servicesList");
 
 services.forEach(function (service) {
 
-var card = document.createElement("article");
+var card =
+document.createElement("article");
 
-card.className = "card service-card";
+card.className =
+"card serviceCard";
 
 card.innerHTML =
-'<div class="icon">' + service.icon + '</div>' +
-'<div><h3 class="service-name">' +
+
+'<div class="icon">' +
+service.icon +
+'</div>' +
+
+'<div>' +
+'<h3 class="serviceName">' +
 service.name +
-'</h3><p class="desc">' +
+'</h3>' +
+
+'<p class="desc">' +
 service.desc +
-'</p></div>' +
-'<a class="btn btn-whatsapp" href="' +
+'</p>' +
+'</div>' +
+
+'<a class="btn btnWhatsapp" href="' +
 whatsappUrl(service.name) +
-'" target="_blank" rel="noopener">בקשי תור בוואטסאפ</a>';
+'" target="_blank">' +
+
+'בקשי תור בוואטסאפ' +
+
+'</a>';
 
 list.appendChild(card);
 
@@ -947,38 +1021,45 @@ list.appendChild(card);
 
 }
 
+/* =========================
+   יצירת גלריה
+========================= */
+
 function renderGallery() {
 
-var grid = document.getElementById("galleryGrid");
+var grid =
+document.getElementById("galleryGrid");
 
-var lightbox = document.getElementById("lightbox");
+var lightbox =
+document.getElementById("lightbox");
 
-var lightboxImg = document.getElementById("lightboxImg");
+var lightboxImg =
+document.getElementById("lightboxImg");
 
-if (!grid || !lightbox || !lightboxImg) return;
+galleryImages.forEach(function (src) {
 
-galleryImages.forEach(function (src, index) {
-
-var button = document.createElement("button");
-
-button.type = "button";
+var button =
+document.createElement("button");
 
 button.innerHTML =
+
 '<img src="' +
 src +
-'" alt="גלריה ' +
-(index + 1) +
 '" loading="lazy">';
 
-button.addEventListener("click", function () {
+button.addEventListener(
+"click",
+function () {
 
 lightboxImg.src = src;
 
 lightbox.classList.add("open");
 
-document.body.style.overflow = "hidden";
+document.body.style.overflow =
+"hidden";
 
-});
+}
+);
 
 grid.appendChild(button);
 
@@ -986,15 +1067,20 @@ grid.appendChild(button);
 
 }
 
+/* =========================
+   סגירת תמונה
+========================= */
+
 function bindLightbox() {
 
-var lightbox = document.getElementById("lightbox");
+var lightbox =
+document.getElementById("lightbox");
 
-var close = document.getElementById("closeLightbox");
+var close =
+document.getElementById("closeLightbox");
 
-var lightboxImg = document.getElementById("lightboxImg");
-
-if (!lightbox || !close || !lightboxImg) return;
+var lightboxImg =
+document.getElementById("lightboxImg");
 
 function closeLightbox() {
 
@@ -1006,25 +1092,27 @@ document.body.style.overflow = "";
 
 }
 
-close.addEventListener("click", closeLightbox);
+close.addEventListener(
+"click",
+closeLightbox
+);
 
-lightbox.addEventListener("click", function (event) {
+lightbox.addEventListener(
+"click",
+function (event) {
 
 if (event.target === lightbox) {
 closeLightbox();
 }
 
-});
+}
+);
 
-document.addEventListener("keydown", function (event) {
-
-if (event.key === "Escape") {
-closeLightbox();
 }
 
-});
-
-}
+/* =========================
+   שנה בפוטר
+========================= */
 
 document.getElementById("year").textContent =
 String(new Date().getFullYear());
@@ -1036,6 +1124,7 @@ renderGallery();
 bindLightbox();
 
 }());
+
 </script>
 
 </body>
