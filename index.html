@@ -7,7 +7,7 @@
 
 <title>כרמל ביסמוט | מניקוריסטית בגן יבנה</title>
 
-<meta name="description" content="כרמל ביסמוט - לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל, טיפסים הפוכים, לק היפואלרגני ועיצוב גבות." />
+<meta name="description" content="כרמל ביסמוט - לק ג׳ל, פדיקור, בנייה בג׳ל, טיפסים הפוכים, לק היפואלרגני ועיצוב גבות." />
 
 <style>
 :root {
@@ -232,31 +232,40 @@ border-radius: 999px;
 border: 2px solid var(--pinkStrong);
 display: grid;
 place-items: center;
-color: white;
+color: transparent;
 font-size: 16px;
 font-weight: 900;
 }
 
 .serviceCard.selected .checkCircle {
 background: var(--pinkStrong);
+color: white;
 }
 
 .bookingBox {
-
-margin-top: 14px;
-
-background: rgba(255,255,255,.92);
-
+position: static;
+margin-top: 16px;
+background: rgba(255,255,255,.94);
 border: 1px solid var(--border);
-
 border-radius: 24px;
-
 box-shadow: var(--shadow);
-
-padding: 14px;
-
+padding: 16px;
 backdrop-filter: blur(16px);
+}
 
+.bookingNotice {
+text-align: center;
+font-size: 15px;
+font-weight: 900;
+color: var(--pinkStrong);
+margin: 0 0 10px;
+}
+
+.selectedText {
+color: var(--muted);
+font-size: 13px;
+margin-bottom: 10px;
+text-align: center;
 }
 
 .bookingFields {
@@ -269,16 +278,10 @@ margin-bottom: 12px;
 width: 100%;
 border: 1px solid var(--border);
 border-radius: 16px;
-padding: 12px 14px;
+padding: 13px 14px;
 font: inherit;
 background: white;
 outline: none;
-}
-
-.selectedText {
-color: var(--muted);
-font-size: 13px;
-margin-bottom: 10px;
 }
 
 .btn {
@@ -286,7 +289,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 width: 100%;
-min-height: 52px;
+min-height: 60px;
 border: 0;
 border-radius: 18px;
 padding: 13px 18px;
@@ -298,6 +301,7 @@ cursor: pointer;
 .btnWhatsapp {
 background: linear-gradient(135deg,#25d366,#14b857);
 color: white;
+box-shadow: 0 14px 28px rgba(37,211,102,.22);
 }
 
 .btnPink {
@@ -388,7 +392,7 @@ padding-top: 20px;
 .app { width: min(100%,860px); }
 .cards { grid-template-columns: repeat(2,1fr); }
 .gallery { grid-template-columns: repeat(3,1fr); }
-.bookingBox { max-width: 520px; margin-inline: auto; }
+.bookingBox { max-width: 520px; margin-inline: auto; margin-top: 18px; }
 }
 </style>
 </head>
@@ -419,10 +423,10 @@ padding-top: 20px;
 <div class="eyebrow">✨ ציפורלוגית מומחית</div>
 <h1>מניקוריסטית ופסיכולוגית ממני תצאי עם חיוך 💅</h1>
 <p class="subtitle">
-לק ג׳ל • מבנה אנטומי • מניקור רוסי מוקפד • פדיקור • בנייה בג׳ל • טיפסים הפוכים • לק היפואלרגני • עיצוב גבות
+לק ג׳ל • פדיקור • בנייה בג׳ל • טיפסים הפוכים • לק היפואלרגני • עיצוב גבות
 </p>
 <div class="statusCard">
-בחרי טיפול אחד או כמה טיפולים, הוסיפי שם ותאריך מועדף, והכול יישלח מסודר לוואטסאפ 💕
+בחרי טיפול אחד או כמה טיפולים, מלאי שם ותאריך מועדף, והכול נשלח מסודר לוואטסאפ 💕
 </div>
 </section>
 
@@ -432,9 +436,9 @@ padding-top: 20px;
 <span class="hint">אפשר לבחור כמה</span>
 </div>
 
-<div class="cards" id="servicesList"></div>
-
 <div class="bookingBox">
+<p class="bookingNotice">בחרי טיפולים ושלחי לכרמל 💕</p>
+
 <div class="selectedText" id="selectedText">לא נבחרו טיפולים עדיין</div>
 
 <div class="bookingFields">
@@ -447,6 +451,10 @@ padding-top: 20px;
 שלחי לכרמל בוואטסאפ 💬
 </button>
 </div>
+
+<br>
+
+<div class="cards" id="servicesList"></div>
 </section>
 
 <section id="gallery">
@@ -552,7 +560,7 @@ question: "תיקון / קישוט:"
 {
 icon: "✨",
 name: "לק ג'ל ברגליים",
-desc: "ניקוי יסודי ועדין עם גימור מושלם.",
+desc: "לק ג׳ל ברגליים בגימור נקי ומדויק.",
 question: "💕:"
 },
 {
@@ -564,7 +572,7 @@ question: "בלי לק ג'ל / לק ג׳ל:"
 {
 icon: "🌸",
 name: "בנייה בג׳ל / מילוי בג'ל",
-desc: "בנייה בג׳ל במראה נשי.",
+desc: "בנייה או מילוי בג׳ל במראה נשי.",
 question: "בנייה חדשה / מילוי:"
 },
 {
