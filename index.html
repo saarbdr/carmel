@@ -1,23 +1,16 @@
 <!doctype html>
 <html lang="he" dir="rtl">
-
 <head>
-
 <meta charset="utf-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#f7b6c8" />
 
 <title>כרמל ביסמוט | מניקוריסטית בגן יבנה</title>
 
-<meta
-name="description"
-content="כרמל ביסמוט - לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל, לק היפואלרגני ועיצוב גבות."
-/>
+<meta name="description" content="כרמל ביסמוט - לק ג׳ל, מבנה אנטומי, מניקור רוסי, פדיקור, בנייה בג׳ל, טיפסים הפוכים, לק היפואלרגני ועיצוב גבות." />
 
 <style>
 :root {
---bg: #fff7fa;
 --card: rgba(255,255,255,.82);
 --pink: #f7b6c8;
 --pinkStrong: #e987a8;
@@ -30,6 +23,7 @@ content="כרמל ביסמוט - לק ג׳ל, מבנה אנטומי, מניקו�
 }
 
 * { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -66,6 +60,7 @@ border-bottom: 1px solid var(--border);
 display: flex;
 align-items: center;
 justify-content: space-between;
+gap: 10px;
 }
 
 .brand {
@@ -91,6 +86,7 @@ padding: 6px 10px;
 border-radius: 999px;
 font-size: 12px;
 font-weight: 700;
+white-space: nowrap;
 }
 
 .nav {
@@ -163,6 +159,7 @@ display: flex;
 justify-content: space-between;
 align-items: end;
 margin-bottom: 12px;
+gap: 12px;
 }
 
 h2 {
@@ -192,12 +189,18 @@ padding: 16px;
 
 .serviceCard {
 display: grid;
-grid-template-columns: auto 1fr;
+grid-template-columns: auto 1fr auto;
 gap: 14px;
-align-items: start;
+align-items: center;
+cursor: pointer;
+transition: .2s ease;
 }
 
-.serviceCard .btn { grid-column: 1 / -1; }
+.serviceCard.selected {
+background: rgba(255,229,238,.92);
+border-color: rgba(233,135,168,.55);
+transform: translateY(-2px);
+}
 
 .icon {
 width: 50px;
@@ -220,6 +223,57 @@ font-weight: 900;
 margin: 0;
 color: var(--muted);
 font-size: 14px;
+}
+
+.checkCircle {
+width: 28px;
+height: 28px;
+border-radius: 999px;
+border: 2px solid var(--pinkStrong);
+display: grid;
+place-items: center;
+color: white;
+font-size: 16px;
+font-weight: 900;
+}
+
+.serviceCard.selected .checkCircle {
+background: var(--pinkStrong);
+}
+
+.bookingBox {
+position: sticky;
+bottom: 14px;
+z-index: 15;
+margin-top: 14px;
+background: rgba(255,255,255,.92);
+border: 1px solid var(--border);
+border-radius: 24px;
+box-shadow: var(--shadow);
+padding: 14px;
+backdrop-filter: blur(16px);
+}
+
+.bookingFields {
+display: grid;
+gap: 10px;
+margin-bottom: 12px;
+}
+
+.bookingFields input {
+width: 100%;
+border: 1px solid var(--border);
+border-radius: 16px;
+padding: 12px 14px;
+font: inherit;
+background: white;
+outline: none;
+}
+
+.selectedText {
+color: var(--muted);
+font-size: 13px;
+margin-bottom: 10px;
 }
 
 .btn {
@@ -325,24 +379,13 @@ font-size: 12px;
 padding-top: 20px;
 }
 
-@media (max-width: 520px) {
-.gallery {
-grid-template-columns: repeat(2,1fr);
-gap: 10px;
-}
-
-.gallery button { border-radius: 18px; }
-}
-
 @media (min-width: 720px) {
 .app { width: min(100%,860px); }
-
 .cards { grid-template-columns: repeat(2,1fr); }
-
 .gallery { grid-template-columns: repeat(3,1fr); }
+.bookingBox { max-width: 520px; margin-inline: auto; }
 }
 </style>
-
 </head>
 
 <body>
@@ -350,16 +393,12 @@ gap: 10px;
 <main class="app">
 
 <header class="topbar">
-
 <div class="brandRow">
-
 <a class="brand" href="#home">
 <img src="miniBc.png" alt="לוגו כרמל ביסמוט" class="logoImage" />
 <span>כרמל ביסמוט</span>
 </a>
-
 <span class="status">מוזמנות לקבוע תורים 💕</span>
-
 </div>
 
 <nav class="nav">
@@ -369,149 +408,117 @@ gap: 10px;
 <a href="#instagram">אינסטגרם</a>
 <a href="#privacy">פרטיות</a>
 </nav>
-
 </header>
 
 <section id="home" class="hero">
-
 <div class="eyebrow">✨ ציפורלוגית מומחית</div>
-
 <h1>מניקוריסטית ופסיכולוגית ממני תצאי עם חיוך 💅</h1>
-
 <p class="subtitle">
-לק ג׳ל • מבנה אנטומי • מניקור רוסי מוקפד • פדיקור • בנייה בג׳ל • לק היפואלרגני • עיצוב גבות
+לק ג׳ל • מבנה אנטומי • מניקור רוסי מוקפד • פדיקור • בנייה בג׳ל • טיפסים הפוכים • לק היפואלרגני • עיצוב גבות
 </p>
-
 <div class="statusCard">
-מענה בוואטסאפ לפי זמינות 💕
-שלחי תאריך ושעה מועדפים ונתאם לך תור שמתאים בדיוק.
+בחרי טיפול אחד או כמה טיפולים, הוסיפי שם ותאריך מועדף, והכול יישלח מסודר לוואטסאפ 💕
 </div>
-
 </section>
 
 <section id="services">
-
 <div class="sectionTitle">
 <h2>השירותים שלי</h2>
-<span class="hint">בחרי שירות</span>
+<span class="hint">אפשר לבחור כמה</span>
 </div>
 
 <div class="cards" id="servicesList"></div>
 
+<div class="bookingBox">
+<div class="selectedText" id="selectedText">לא נבחרו טיפולים עדיין</div>
+
+<div class="bookingFields">
+<input id="clientName" type="text" placeholder="שם:" />
+<input id="preferredDate" type="text" placeholder="תאריך מועדף:" />
+<input id="preferredTime" type="text" placeholder="שעה מועדפת:" />
+</div>
+
+<button class="btn btnWhatsapp" id="sendWhatsapp" type="button">
+שלחי לכרמל בוואטסאפ 💬
+</button>
+</div>
 </section>
 
 <section id="gallery">
-
 <div class="sectionTitle">
 <h2>גלריה</h2>
 <span class="hint">לחצי להגדלה</span>
 </div>
-
 <div class="gallery" id="galleryGrid"></div>
-
 </section>
 
 <section id="reviews">
-
 <div class="sectionTitle">
 <h2>לקוחות מספרות</h2>
 <span class="hint">אהבה בפרטים</span>
 </div>
 
 <div class="cards">
-
 <article class="card">
-<div class="reviewHead">
-<span>נועה</span>
-<span class="stars">★★★★★</span>
-</div>
+<div class="reviewHead"><span>נועה</span><span class="stars">★★★★★</span></div>
 <p class="reviewText">עבודה נקייה, עדינה ומדויקת. יצא מושלם ונשאר מהמם.</p>
 </article>
 
 <article class="card">
-<div class="reviewHead">
-<span>שיר</span>
-<span class="stars">★★★★★</span>
-</div>
+<div class="reviewHead"><span>שיר</span><span class="stars">★★★★★</span></div>
 <p class="reviewText">אווירה נעימה ותוצאה פרימיום. לגמרי חוזרת שוב.</p>
 </article>
 
 <article class="card">
-<div class="reviewHead">
-<span>מאיה</span>
-<span class="stars">★★★★★</span>
-</div>
+<div class="reviewHead"><span>מאיה</span><span class="stars">★★★★★</span></div>
 <p class="reviewText">כרמל מושלמת, השירות הכי טוב שקיבלתי והעבודה נשארה נדירה.</p>
 </article>
 
 <article class="card">
-<div class="reviewHead">
-<span>ליאן</span>
-<span class="stars">★★★★★</span>
-</div>
+<div class="reviewHead"><span>ליאן</span><span class="stars">★★★★★</span></div>
 <p class="reviewText">יחס אישי, דיוק מטורף ואווירה כיפית. ממליצה בטירוף 💕</p>
 </article>
 
 <article class="card">
-<div class="reviewHead">
-<span>עדן</span>
-<span class="stars">★★★★★</span>
-</div>
+<div class="reviewHead"><span>עדן</span><span class="stars">★★★★★</span></div>
 <p class="reviewText">הציפורניים יצאו בדיוק כמו שרציתי ואפילו יותר יפה מהתמונה שהראיתי.</p>
 </article>
-
 </div>
-
 </section>
 
 <section id="instagram">
-
 <div class="sectionTitle">
 <h2>אינסטגרם</h2>
 <span class="hint">עקבי אחרי עבודות חדשות</span>
 </div>
 
 <div class="card">
-<a
-class="btn btnPink"
-href="https://www.instagram.com/beauty.bycarmel/"
-target="_blank"
-rel="noopener"
->
+<a class="btn btnPink" href="https://www.instagram.com/beauty.bycarmel/" target="_blank" rel="noopener">
 Instagram @beauty.bycarmel 📸
 </a>
 </div>
-
 </section>
 
 <section id="privacy">
-
 <div class="sectionTitle">
 <h2>פרטיות ונגישות</h2>
 <span class="hint">מידע חשוב</span>
 </div>
 
 <div class="card">
-
 <h3 class="serviceName">מדיניות פרטיות</h3>
-
 <p class="policyText">
-האתר אינו שומר מידע אישי או רגיש.
-כל יצירת קשר מתבצעת דרך WhatsApp בלבד.
+האתר אינו שומר מידע אישי או רגיש. כל יצירת קשר מתבצעת דרך WhatsApp בלבד.
 </p>
 
 <br>
 
 <h3 class="serviceName">הצהרת נגישות</h3>
-
 <p class="policyText">
 האתר נבנה במטרה להיות נגיש ונוח לשימוש במובייל ובדפדפנים מודרניים.
-אם נתקלת בבעיה ניתן ליצור קשר בוואטסאפ:
-052-285-0464
+אם נתקלת בבעיה ניתן ליצור קשר בוואטסאפ: 052-285-0464
 </p>
-
 </div>
-
 </section>
 
 <footer>© <span id="year"></span> כרמל ביסמוט</footer>
@@ -519,11 +526,8 @@ Instagram @beauty.bycarmel 📸
 </main>
 
 <div class="lightbox" id="lightbox">
-
 <button class="closeLightbox" id="closeLightbox">×</button>
-
 <img id="lightboxImg" src="" alt="תמונה מוגדלת" />
-
 </div>
 
 <script>
@@ -531,6 +535,7 @@ Instagram @beauty.bycarmel 📸
 "use strict";
 
 var phone = "972522850464";
+var selectedServices = [];
 
 var services = [
 {
@@ -558,6 +563,12 @@ desc: "בנייה בג׳ל במראה נשי.",
 question: "בנייה חדשה / מילוי:"
 },
 {
+icon: "🩷",
+name: "טיפסים הפוכים",
+desc: "הארכה עדינה ומדויקת במראה נקי.",
+question: "אורך מועדף / צורה מועדפת:"
+},
+{
 icon: "🧴",
 name: "לק היפואלרגני",
 desc: "פתרון עדין לרגישויות.",
@@ -580,29 +591,17 @@ var galleryImages = [
 "img6.png"
 ];
 
-function whatsappUrl(serviceName) {
-var service = services.find(function (item) {
-return item.name === serviceName;
-});
+function updateSelectedText() {
+var selectedText = document.getElementById("selectedText");
 
-var question =
-service && service.question
-? service.question
-: "לקוחה חדשה / חוזרת:";
+if (selectedServices.length === 0) {
+selectedText.textContent = "לא נבחרו טיפולים עדיין";
+return;
+}
 
-var message =
-"היי כרמל \n" +
-"אני רוצה לקבוע תור ל:\n" +
-serviceName +
-"\n\n" +
-question +
-"\n\n" +
-"תאריך מועדף:\n" +
-"שעה מועדפת:\n" +
-"שם:\n\n" +
-"אשמח לתאם איתך ";
-
-return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+selectedText.textContent = "נבחרו: " + selectedServices.map(function (item) {
+return item.name;
+}).join(" • ");
 }
 
 function renderServices() {
@@ -611,6 +610,8 @@ var list = document.getElementById("servicesList");
 services.forEach(function (service) {
 var card = document.createElement("article");
 card.className = "card serviceCard";
+card.setAttribute("role", "button");
+card.setAttribute("tabindex", "0");
 
 card.innerHTML =
 '<div class="icon">' + service.icon + '</div>' +
@@ -618,13 +619,68 @@ card.innerHTML =
 '<h3 class="serviceName">' + service.name + '</h3>' +
 '<p class="desc">' + service.desc + '</p>' +
 '</div>' +
-'<a class="btn btnWhatsapp" href="' +
-whatsappUrl(service.name) +
-'" target="_blank">' +
-'בקשי תור בוואטסאפ' +
-'</a>';
+'<div class="checkCircle">✓</div>';
+
+function toggleService() {
+var exists = selectedServices.some(function (item) {
+return item.name === service.name;
+});
+
+if (exists) {
+selectedServices = selectedServices.filter(function (item) {
+return item.name !== service.name;
+});
+card.classList.remove("selected");
+} else {
+selectedServices.push(service);
+card.classList.add("selected");
+}
+
+updateSelectedText();
+}
+
+card.addEventListener("click", toggleService);
+
+card.addEventListener("keydown", function (event) {
+if (event.key === "Enter" || event.key === " ") {
+event.preventDefault();
+toggleService();
+}
+});
 
 list.appendChild(card);
+});
+}
+
+function buildWhatsappMessage() {
+var name = document.getElementById("clientName").value.trim();
+var date = document.getElementById("preferredDate").value.trim();
+var time = document.getElementById("preferredTime").value.trim();
+
+var servicesText = selectedServices.length
+? selectedServices.map(function (service) {
+return "• " + service.name + "\n  " + service.question;
+}).join("\n")
+: "לא נבחר טיפול";
+
+var message =
+"היי כרמל \n\n" +
+"אני רוצה לקבוע תור ל:\n" +
+servicesText +
+"\n\n" +
+"תאריך מועדף: " + date + "\n" +
+"שעה מועדפת: " + time + "\n" +
+"שם: " + name + "\n\n" +
+"אשמח לתאם איתך ";
+
+return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+}
+
+function bindWhatsappButton() {
+var button = document.getElementById("sendWhatsapp");
+
+button.addEventListener("click", function () {
+window.open(buildWhatsappMessage(), "_blank", "noopener");
 });
 }
 
@@ -635,8 +691,8 @@ var lightboxImg = document.getElementById("lightboxImg");
 
 galleryImages.forEach(function (src) {
 var button = document.createElement("button");
-
-button.innerHTML = '<img src="' + src + '" loading="lazy">';
+button.type = "button";
+button.innerHTML = '<img src="' + src + '" loading="lazy" alt="עבודה של כרמל ביסמוט">';
 
 button.addEventListener("click", function () {
 lightboxImg.src = src;
@@ -673,6 +729,8 @@ document.getElementById("year").textContent = String(new Date().getFullYear());
 renderServices();
 renderGallery();
 bindLightbox();
+bindWhatsappButton();
+updateSelectedText();
 
 }());
 </script>
