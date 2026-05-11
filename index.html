@@ -33,6 +33,7 @@ line-height: 1.65;
 background:
 radial-gradient(circle at top, rgba(247,182,200,.30), transparent 35%),
 linear-gradient(180deg,#fff8fb 0%,#fff 50%,#fff7fa 100%);
+padding-bottom: 90px;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -454,11 +455,34 @@ font-size: 24px;
 cursor: pointer;
 }
 
+.floatingBooking {
+position: fixed;
+right: 16px;
+left: 16px;
+bottom: 16px;
+z-index: 50;
+max-width: 480px;
+margin: 0 auto;
+}
+
+.floatingBooking a {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 58px;
+border-radius: 999px;
+background: linear-gradient(135deg,#25d366,#14b857);
+color: white;
+font-weight: 900;
+font-size: 16px;
+box-shadow: 0 14px 35px rgba(37,211,102,.35);
+}
+
 footer {
 text-align: center;
 color: var(--muted);
 font-size: 12px;
-padding-top: 20px;
+padding: 20px 0 30px;
 }
 
 @media (min-width: 720px) {
@@ -624,6 +648,10 @@ Instagram @beauty.bycarmel 📸
 <img id="lightboxImg" src="" alt="תמונה מוגדלת" />
 </div>
 
+<div class="floatingBooking">
+<a href="#services">קביעת תור בוואטסאפ 💬</a>
+</div>
+
 <script>
 (function () {
 "use strict";
@@ -738,12 +766,26 @@ button.type = "button";
 button.className = "optionButton";
 button.textContent = option;
 
-if (selectedAnswers[service.name] === option) {
+if (
+selectedAnswers[service.name] &&
+selectedAnswers[service.name].includes(option)
+) {
 button.classList.add("active");
 }
 
 button.addEventListener("click", function () {
-selectedAnswers[service.name] = option;
+if (!selectedAnswers[service.name]) {
+selectedAnswers[service.name] = [];
+}
+
+var index = selectedAnswers[service.name].indexOf(option);
+
+if (index > -1) {
+selectedAnswers[service.name].splice(index, 1);
+} else {
+selectedAnswers[service.name].push(option);
+}
+
 renderQuestions();
 });
 
@@ -817,7 +859,9 @@ var date = document.getElementById("preferredDate").value.trim();
 var time = document.getElementById("preferredTime").value.trim();
 
 var servicesText = selectedServices.map(function (service) {
-var answer = selectedAnswers[service.name];
+var answer = selectedAnswers[service.name]
+? selectedAnswers[service.name].join(", ")
+: "";
 
 if (service.question && answer) {
 return "• " + service.name + "\n  " + service.question + " " + answer;
