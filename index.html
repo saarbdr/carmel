@@ -23,7 +23,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -268,6 +267,21 @@ margin-bottom: 10px;
 text-align: center;
 }
 
+.errorText {
+display: none;
+background: rgba(233,135,168,.12);
+border: 1px solid rgba(233,135,168,.28);
+color: #b94f73;
+font-size: 13px;
+font-weight: 800;
+text-align: center;
+border-radius: 16px;
+padding: 10px;
+margin-bottom: 10px;
+}
+
+.errorText.show { display: block; }
+
 .bookingFields {
 display: grid;
 gap: 10px;
@@ -282,6 +296,56 @@ padding: 13px 14px;
 font: inherit;
 background: white;
 outline: none;
+}
+
+.questionsBox {
+display: none;
+margin: 12px 0;
+padding: 12px;
+border-radius: 20px;
+background: rgba(255,229,238,.35);
+border: 1px solid var(--border);
+}
+
+.questionsBox.show { display: block; }
+
+.questionItem {
+margin-bottom: 12px;
+}
+
+.questionItem:last-child {
+margin-bottom: 0;
+}
+
+.questionTitle {
+font-size: 14px;
+font-weight: 900;
+margin-bottom: 8px;
+color: var(--text);
+}
+
+.optionGroup {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+.optionButton {
+border: 1px solid var(--border);
+background: white;
+border-radius: 999px;
+padding: 8px 12px;
+font: inherit;
+font-size: 13px;
+font-weight: 800;
+color: var(--muted);
+cursor: pointer;
+}
+
+.optionButton.active {
+background: var(--pinkStrong);
+color: white;
+border-color: var(--pinkStrong);
 }
 
 .btn {
@@ -307,6 +371,15 @@ box-shadow: 0 14px 28px rgba(37,211,102,.22);
 .btnPink {
 background: linear-gradient(135deg,var(--pink),var(--pinkStrong));
 color: white;
+}
+
+.clearButton {
+margin-top: 10px;
+min-height: 44px;
+background: white;
+color: var(--muted);
+border: 1px solid var(--border);
+box-shadow: none;
 }
 
 .gallery {
@@ -426,7 +499,7 @@ padding-top: 20px;
 לק ג׳ל • פדיקור • בנייה בג׳ל • טיפסים הפוכים • לק היפואלרגני • עיצוב גבות
 </p>
 <div class="statusCard">
-בחרי טיפול אחד או כמה טיפולים, מלאי שם ותאריך מועדף, והכול נשלח מסודר לוואטסאפ 💕
+בחרי טיפול אחד או כמה טיפולים, עני על השאלות, מלאי שם ותאריך מועדף, והכול נשלח מסודר לוואטסאפ 💕
 </div>
 </section>
 
@@ -439,7 +512,11 @@ padding-top: 20px;
 <div class="bookingBox">
 <p class="bookingNotice">בחרי טיפולים ושלחי לכרמל 💕</p>
 
+<div class="errorText" id="errorText">בחרי לפחות טיפול אחד 💕</div>
+
 <div class="selectedText" id="selectedText">לא נבחרו טיפולים עדיין</div>
+
+<div class="questionsBox" id="questionsBox"></div>
 
 <div class="bookingFields">
 <input id="clientName" type="text" placeholder="שם:" />
@@ -449,6 +526,10 @@ padding-top: 20px;
 
 <button class="btn btnWhatsapp" id="sendWhatsapp" type="button">
 שלחי לכרמל בוואטסאפ 💬
+</button>
+
+<button class="btn clearButton" id="clearSelection" type="button">
+ניקוי בחירה
 </button>
 </div>
 
@@ -549,49 +630,57 @@ Instagram @beauty.bycarmel 📸
 
 var phone = "972522850464";
 var selectedServices = [];
+var selectedAnswers = {};
 
 var services = [
 {
 icon: "💅",
 name: "לק ג׳ל מבנה אנטומי",
 desc: "לק ג׳ל נקי, נשי ומוקפד.",
-question: "תיקון / קישוט:"
+question: "תיקון / קישוט:",
+options: ["תיקון", "קישוט"]
 },
 {
 icon: "✨",
 name: "לק ג'ל ברגליים",
 desc: "לק ג׳ל ברגליים בגימור נקי ומדויק.",
-question: "💕:"
+question: "",
+options: []
 },
 {
 icon: "🦶",
 name: "פדיקור",
 desc: "פדיקור נקי ועדין.",
-question: "בלי לק ג'ל / לק ג׳ל:"
+question: "בלי לק ג'ל / לק ג׳ל:",
+options: ["בלי לק ג'ל", "לק ג׳ל"]
 },
 {
 icon: "🌸",
 name: "בנייה בג׳ל / מילוי בג'ל",
 desc: "בנייה או מילוי בג׳ל במראה נשי.",
-question: "בנייה חדשה / מילוי:"
+question: "בנייה חדשה / מילוי:",
+options: ["בנייה חדשה", "מילוי"]
 },
 {
 icon: "🩷",
 name: "טיפסים הפוכים",
 desc: "הארכה עדינה ומדויקת במראה נקי.",
-question: "אורך מועדף / צורה מועדפת:"
+question: "תיקון / קישוט:",
+options: ["תיקון", "קישוט"]
 },
 {
 icon: "🧴",
 name: "לק היפואלרגני",
 desc: "פתרון עדין לרגישויות.",
-question: "יש רגישות ידועה?:"
+question: "יש רגישות ידועה?:",
+options: ["כן", "לא"]
 },
 {
 icon: "🤍",
 name: "עיצוב גבות",
 desc: "עיצוב גבות נקי ומחמיא.",
-question: "חוט / שעווה / שפם / בלי שפם:"
+question: "חוט / שעווה / שפם / בלי שפם:",
+options: ["חוט", "שעווה", "שפם", "בלי שפם"]
 }
 ];
 
@@ -615,6 +704,62 @@ return;
 selectedText.textContent = "נבחרו: " + selectedServices.map(function (item) {
 return item.name;
 }).join(" • ");
+}
+
+function renderQuestions() {
+var box = document.getElementById("questionsBox");
+box.innerHTML = "";
+
+var servicesWithQuestions = selectedServices.filter(function (service) {
+return service.question && service.options && service.options.length > 0;
+});
+
+if (servicesWithQuestions.length === 0) {
+box.classList.remove("show");
+return;
+}
+
+box.classList.add("show");
+
+servicesWithQuestions.forEach(function (service) {
+var item = document.createElement("div");
+item.className = "questionItem";
+
+var title = document.createElement("div");
+title.className = "questionTitle";
+title.textContent = service.name + " — " + service.question;
+
+var group = document.createElement("div");
+group.className = "optionGroup";
+
+service.options.forEach(function (option) {
+var button = document.createElement("button");
+button.type = "button";
+button.className = "optionButton";
+button.textContent = option;
+
+if (selectedAnswers[service.name] === option) {
+button.classList.add("active");
+}
+
+button.addEventListener("click", function () {
+selectedAnswers[service.name] = option;
+renderQuestions();
+});
+
+group.appendChild(button);
+});
+
+item.appendChild(title);
+item.appendChild(group);
+box.appendChild(item);
+});
+}
+
+function updateBookingUi() {
+updateSelectedText();
+renderQuestions();
+document.getElementById("errorText").classList.remove("show");
 }
 
 function renderServices() {
@@ -643,13 +788,14 @@ if (exists) {
 selectedServices = selectedServices.filter(function (item) {
 return item.name !== service.name;
 });
+delete selectedAnswers[service.name];
 card.classList.remove("selected");
 } else {
 selectedServices.push(service);
 card.classList.add("selected");
 }
 
-updateSelectedText();
+updateBookingUi();
 }
 
 card.addEventListener("click", toggleService);
@@ -670,11 +816,19 @@ var name = document.getElementById("clientName").value.trim();
 var date = document.getElementById("preferredDate").value.trim();
 var time = document.getElementById("preferredTime").value.trim();
 
-var servicesText = selectedServices.length
-? selectedServices.map(function (service) {
+var servicesText = selectedServices.map(function (service) {
+var answer = selectedAnswers[service.name];
+
+if (service.question && answer) {
+return "• " + service.name + "\n  " + service.question + " " + answer;
+}
+
+if (service.question) {
 return "• " + service.name + "\n  " + service.question;
-}).join("\n")
-: "לא נבחר טיפול";
+}
+
+return "• " + service.name;
+}).join("\n");
 
 var message =
 "היי כרמל \n\n" +
@@ -691,9 +845,32 @@ return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
 
 function bindWhatsappButton() {
 var button = document.getElementById("sendWhatsapp");
+var errorText = document.getElementById("errorText");
 
 button.addEventListener("click", function () {
+if (selectedServices.length === 0) {
+errorText.textContent = "בחרי לפחות טיפול אחד 💕";
+errorText.classList.add("show");
+document.getElementById("services").scrollIntoView({ behavior: "smooth", block: "start" });
+return;
+}
+
 window.open(buildWhatsappMessage(), "_blank", "noopener");
+});
+}
+
+function bindClearButton() {
+var clearButton = document.getElementById("clearSelection");
+
+clearButton.addEventListener("click", function () {
+selectedServices = [];
+selectedAnswers = {};
+
+document.querySelectorAll(".serviceCard.selected").forEach(function (card) {
+card.classList.remove("selected");
+});
+
+updateBookingUi();
 });
 }
 
@@ -743,7 +920,8 @@ renderServices();
 renderGallery();
 bindLightbox();
 bindWhatsappButton();
-updateSelectedText();
+bindClearButton();
+updateBookingUi();
 
 }());
 </script>
